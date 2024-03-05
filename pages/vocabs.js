@@ -1,12 +1,15 @@
 import renderToDOM from '../utils/renderToDom';
 // import { getLanguage } from '../api/languageData';
+import clearDom from '../utils/clearDom';
 
 const emptyVocabs = () => {
+  clearDom();
   const domString = '<h1>No Vocabs</h1>';
   renderToDOM('#store', domString);
 };
+
 const showVocabs = (array) => {
-  // clearDom();
+  clearDom();
   if (array <= 0) {
     emptyVocabs();
   } else {
@@ -23,7 +26,7 @@ const showVocabs = (array) => {
     <div class="card-body">
     <i class="btn btn-success" id="view-vocab-btn--${item.firebaseKey}"><span id="view-vocab-btn--${item.firebaseKey}" class="fas fa-eye"></span></i>
     <i id="edit-vocab-btn--${item.firebaseKey}" class="btn btn-info"><span id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit"></span></i>
-    <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab-btn--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>
+    <i id="delete-vocab--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>
     </div>
   </div>
     `;
