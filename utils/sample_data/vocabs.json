@@ -1,0 +1,122 @@
+{
+  "-Ns8wAjUuDSCtDlHmCPs": {
+    "definition": "A function passed as an argument to another function, commonly used in asynchronous JavaScript programming.",
+    "firebaseKey": " -Ns8wAjUuDSCtDlHmCPs",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZr",
+    "time_submitted": "2023-06-08 23:14:36",
+    "title": "Callback", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjVHnxrt_73hqA5": {
+    "definition": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+    "firebaseKey": " -Ns8wAjVHnxrt_73hqA5",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZs",
+    "time_submitted": "2023-06-19 05:36:52",
+    "title": "Django", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjW_7fDWuGZCBQ6": {
+    "definition": "Using HTML tags that carry meaning about the structure of the page, enhancing accessibility and SEO.",
+    "firebaseKey": 3,
+    "languageID": "-Ns8x8GhoGgzYkdSjpZt",
+    "time_submitted": "2023-12-26 13:24:51",
+    "title": "Semantic HTML", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjXBUAnnDi95G4E": {
+    "definition": "Java's ability to execute multiple tasks simultaneously, crucial for optimizing performance in large-scale systems.",
+    "firebaseKey": "-Ns8wAjXBUAnnDi95G4E",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZu",
+    "time_submitted": "2023-10-11 08:56:56",
+    "title": "Concurrency", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjXBUAnnDi95G4F": {
+    "definition": "A framework for building dynamic web applications with C#, widely used for server-side development.",
+    "firebaseKey": " -Ns8wAjXBUAnnDi95G4F",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZv",
+    "time_submitted": "2023-11-20 18:27:04",
+    "title": "ASP.NET", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjYpZYlUSLTi8Ry": {
+    "definition": "A syntax extension that allows mixing HTML-like code within JavaScript, providing a more declarative way to define UI components.",
+    "firebaseKey": " -Ns8wAjYpZYlUSLTi8Ry",
+    "languageID": "-Ns8x8GiTVPSMCBY6Oro",
+    "time_submitted": "2023-11-29 13:02:28",
+    "title": "JSX", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjZ9615O-GNj6Iw": {
+    "definition": "A variable that stores the memory address of another variable, providing direct access to the stored data.",
+    "firebaseKey": "-Ns8wAjZ9615O-GNj6Iw",
+    "languageID": " -Ns8x8GiTVPSMCBY6Orp",
+    "time_submitted": "2024-01-27 01:29:43",
+    "title": "Pointer", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAj_mvBdnOcy-olQ": {
+    "definition": "The process of capturing and responding to user interactions, such as clicks or keypresses, using JavaScript to enhance interactivity.",
+    "firebaseKey": "-Ns8wAj_mvBdnOcy-olQ",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZt",
+    "time_submitted": "2023-05-18 07:47:10",
+    "title": "Event Handling", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjaxG4lH9Y-up0D": {
+    "definition": "A lightweight copy of the actual DOM, used to optimize rendering by updating only the changed elements, enhancing performance.",
+    "firebaseKey": " -Ns8wAjaxG4lH9Y-up0D",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZr",
+    "time_submitted": "2024-02-08 00:57:59",
+    "title": "Virtual DOM", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjaxG4lH9Y-up0E": {
+    "definition": "A feature in TypeScript where the type of a variable is automatically determined by the compiler.",
+    "firebaseKey": " -Ns8wAjaxG4lH9Y-up0E",
+    "languageID": "-Ns8x8GiTVPSMCBY6Orr",
+    "time_submitted": "2023-11-18 12:54:26",
+    "title": "Type Inference", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjbIEZ0NUb0CVkT": {
+    "definition": "A powerful library in C++ that provides generic classes and functions with templates for various data structures.",
+    "firebaseKey": "-Ns8wAjbIEZ0NUb0CVkT",
+    "languageID": " -Ns8x8GiTVPSMCBY6Orp",
+    "time_submitted": "2024-01-18 03:36:00",
+    "title": "Standard Template Library", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjcPrYq7HVDMsBk": {
+    "definition": "A concise way to write anonymous functions using the => syntax, commonly used for short, one-line expressions.",
+    "firebaseKey": "-Ns8wAjcPrYq7HVDMsBk",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZr",
+    "time_submitted": "2023-12-01 11:13:48",
+    "title": "Arrow Function", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjdMZwZgKc2MGNJ": {
+    "definition": "A declaration at the beginning of a document that defines the version of HTML being used and triggers standards mode for rendering.",
+    "firebaseKey": " -Ns8wAjdMZwZgKc2MGNJ",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZt",
+    "time_submitted": "2023-12-10 06:51:59",
+    "title": "DOCTYPE", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjfStf0-2LUCsT8": {
+    "definition": "A way to embed expressions inside string literals using backticks (`) for more flexible and readable string concatenation.",
+    "firebaseKey": " -Ns8wAjfStf0-2LUCsT8",
+    "languageID": "-Ns8x8GhoGgzYkdSjpZr",
+    "time_submitted": "2023-04-30 20:14:53",
+    "title": "Template Literal", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  },
+  "-Ns8wAjgEIDJ-nOz47SB": {
+    "definition": "A reusable and self-contained UI element that manages its own state and properties, facilitating the construction of dynamic user interfaces.",
+    "firebaseKey": " -Ns8wAjgEIDJ-nOz47SB",
+    "languageID": "-Ns8x8GiTVPSMCBY6Oro",
+    "time_submitted": "2023-07-25 18:47:55",
+    "title": "React Component", 
+    "uid":"W0bePFzawpeUJJdZmkB8AQTQuth2"
+  }
+}
