@@ -25,11 +25,37 @@ const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-    }, // you technically do not need the options object for GET requests, but using it here for consistency
+    },
   })
     .then((response) => response.json())
     .then((data) => resolve(data)) // will resolve a single object
     .catch(reject);
 });
 
-export { getVocab, getSingleVocab };
+const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data)) // will resolve a single object
+    .catch(reject);
+});
+
+const updateVocab = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve) // will resolve a single object
+    .catch(reject);
+});
+export {
+  getVocab, getSingleVocab, deleteVocab, updateVocab
+};
