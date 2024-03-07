@@ -8,21 +8,6 @@ const emptyVocabs = () => {
   renderToDOM('#store', domString);
 };
 
-// const selectCardLanguage = (uid, languageId) => {
-//   console.warn()
-//   getLanguage(uid).then((langArray) => {
-//     console.warn('lanArray', langArray);
-//     const language = langArray.find((langItem) => langItem.firebaseKey === languageId);
-//     console.warn('lang', language);
-//     if (language) {
-//       const langString = `<h5 id="vocab_lang" class="card-title">${language.language_name}</h5>`;
-//       renderToDOM('#select_card_lang', langString);
-//       console.warn(language.language_name);
-//     }
-//   });
-// };
-
-// nothing will render with this code
 const showVocabs = async (array, uid) => {
   clearDom();
   if (array.length === 0) {
@@ -41,6 +26,7 @@ const showVocabs = async (array, uid) => {
       <p id="vocab_def"class="card-text">${item.definition}</p>
       <p id="date_created"class="card-text">${item.time_submitted}</p>
     </div>
+    <hr>
     <i class="btn btn-success" id="view-vocab-btn--${item.firebaseKey}"><span id="view-vocab-btn--${item.firebaseKey}" class="fas fa-eye"></span></i>
     <i id="edit-vocab-btn--${item.firebaseKey}" class="btn btn-info"><span id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit"></span></i>
     <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab-btn--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>

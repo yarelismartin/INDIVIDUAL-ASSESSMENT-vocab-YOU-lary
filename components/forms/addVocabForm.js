@@ -32,14 +32,14 @@ const addVocabForm = (obj = {}, uid) => {
     </div>
     <div class="mb-3">
       <label class="form-label">Definition</label>
-      <textarea type="text" class="form-control" id="definition">${obj.definition || ''}</textarea>
+      <input type="text" class="form-control" id="definition" value="${obj.definition || ''}">
     </div>
     <div class="form-group" id="select-language"></div>
-    <button type="submit" id="submit-vocab" class="btn btn-primary">${obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'}</button>
+    <button type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'}</button>
   </form>
   `;
-  selectLanguage(uid, `${obj.languageID || ''}`);
   renderToDOM('#form-container', domString);
+  selectLanguage(uid, `${obj.languageID || ''}`);
 };
 
 export default addVocabForm;
