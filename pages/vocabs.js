@@ -1,6 +1,6 @@
 import renderToDOM from '../utils/renderToDom';
-// import { getLanguage } from '../api/languageData';
 import clearDom from '../utils/clearDom';
+import { getLanguage } from '../api/languageData';
 
 const emptyVocabs = () => {
   clearDom();
@@ -8,25 +8,42 @@ const emptyVocabs = () => {
   renderToDOM('#store', domString);
 };
 
-const showVocabs = (array) => {
+// const selectCardLanguage = (uid, languageId) => {
+//   console.warn()
+//   getLanguage(uid).then((langArray) => {
+//     console.warn('lanArray', langArray);
+//     const language = langArray.find((langItem) => langItem.firebaseKey === languageId);
+//     console.warn('lang', language);
+//     if (language) {
+//       const langString = `<h5 id="vocab_lang" class="card-title">${language.language_name}</h5>`;
+//       renderToDOM('#select_card_lang', langString);
+//       console.warn(language.language_name);
+//     }
+//   });
+// };
+
+// nothing will render with this code
+const showVocabs = async (array, uid) => {
   clearDom();
-  if (array <= 0) {
+  if (array.length === 0) {
     emptyVocabs();
   } else {
     let domString = '';
+    const languages = await getLanguage(uid);
+
     array.forEach((item) => {
+      const singleLanguage = languages.find((lang) => lang.firebaseKey === item.languageID);
       domString += `
     <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 id="vocab_title" class="card-title">${item.title}</h5>
-      <h5 id="vocab_lang" class="card-title">${item.language_name}</h5>
-      <p id="vocab_deff"class="card-text">${item.definition}</p>
+      <h5 id="vocab_lang" class="card-title">${singleLanguage.language_name}</h5>
+      <p id="vocab_def"class="card-text">${item.definition}</p>
       <p id="date_created"class="card-text">${item.time_submitted}</p>
     </div>
-    <div class="card-body">
     <i class="btn btn-success" id="view-vocab-btn--${item.firebaseKey}"><span id="view-vocab-btn--${item.firebaseKey}" class="fas fa-eye"></span></i>
     <i id="edit-vocab-btn--${item.firebaseKey}" class="btn btn-info"><span id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit"></span></i>
-    <i id="delete-vocab--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>
+    <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab-btn--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>
     </div>
   </div>
     `;
@@ -36,36 +53,3 @@ const showVocabs = (array) => {
 };
 
 export default showVocabs;
-
-// const showVocabs = (array) => {
-// // clearDom();
-//   if (array.length === 0) {
-//     emptyVocabs();
-//   } else {
-//     const lang = getLanguage();
-//     let domString = '';
-//     array.forEach((item) => {
-//     // const singlelang = lang.find(lang.firebaseKey === item.languageID);
-//       const singlelang = lang.find((langItem) => lang.firebaseKey === langItem.languageID);
-//       console.warn(singlelang.language_name);
-//       domString += `
-//     <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//       <h5 id="vocab_title" class="card-title">${item.title}</h5>
-//       <h5 id="vocab_lang" class="card-title">${singlelang.language_name}</h5>
-//       <p id="vocab_deff"class="card-text">${item.definition}</p>
-//       <p id="date_created"class="card-text">${item.time_submitted}</p>
-//     </div>
-//     <div class="card-body">
-//     <i class="btn btn-success" id="view-vocab-btn--${item.firebaseKey}"><span id="view-vocab-btn--${item.firebaseKey}" class="fas fa-eye"></span></i>
-//     <i id="edit-vocab-btn--${item.firebaseKey}" class="btn btn-info"><span id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit"></span></i>
-//     <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger"><span id="delete-vocab-btn--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>
-//     </div>
-//   </div>
-//     `;
-//     });
-//     renderToDOM('#store', domString);
-//   }
-// };
-
-// export default showVocabs;

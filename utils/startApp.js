@@ -14,7 +14,7 @@ const startApp = (uid) => {
   navBar();
   logoutButton();
   navEvents();
-  getVocab(uid).then(showVocabs);
+  getVocab(uid).then((vocab) => showVocabs(vocab, uid));
 };
 
 export default startApp;
