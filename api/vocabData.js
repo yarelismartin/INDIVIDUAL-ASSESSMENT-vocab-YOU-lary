@@ -56,6 +56,20 @@ const updateVocab = (payload) => new Promise((resolve, reject) => {
     .then(resolve) // will resolve a single object
     .catch(reject);
 });
+
+const createVocab = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getVocab, getSingleVocab, deleteVocab, updateVocab
+  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab
 };
