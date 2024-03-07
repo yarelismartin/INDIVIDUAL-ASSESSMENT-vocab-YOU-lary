@@ -1,9 +1,9 @@
 import addVocabForm from '../components/forms/addVocabForm';
 
-const navEvents = () => {
+const navEvents = (uid) => {
   document.querySelector('#main_navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('create_vocab_btn')) {
-      addVocabForm();
+      addVocabForm({}, uid);
     }
   });
 };
