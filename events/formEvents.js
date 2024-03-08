@@ -11,7 +11,7 @@ const formEvents = (uid) => {
         title: document.querySelector('#title').value,
         languageID: document.querySelector('#language_id_name').value,
         definition: document.querySelector('#definition').value,
-        time_submitted: Date(Date.now),
+        time_submitted: new Date().toISOString().slice(0, 19).replace('T', ' '),
         uid
       };
       createVocab(payload).then(({ name }) => {
@@ -20,6 +20,20 @@ const formEvents = (uid) => {
         updateVocab(patchPayload).then(() => {
           getVocab(uid).then((vocab) => showVocabs(vocab, uid));
         });
+      });
+    }
+    if (e.target.id.includes('update-vocab')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        title: document.querySelector('#title').value,
+        languageID: document.querySelector('#language_id_name').value,
+        definition: document.querySelector('#definition').value,
+        time_submitted: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        firebaseKey,
+        uid
+      };
+      updateVocab(payload).then(() => {
+        getVocab(uid).then((vocab) => showVocabs(vocab, uid));
       });
     }
   });
