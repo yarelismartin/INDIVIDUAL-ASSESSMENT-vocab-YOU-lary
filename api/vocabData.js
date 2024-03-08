@@ -70,6 +70,21 @@ const createVocab = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVocabByLang = (uid, languageID) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const langVocab = Object.values(data).filter((obj) => obj.languageID === languageID);
+      resolve(langVocab);
+    })
+    .catch(reject);
+});
+
 export {
-  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab
+  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab, getVocabByLang
 };

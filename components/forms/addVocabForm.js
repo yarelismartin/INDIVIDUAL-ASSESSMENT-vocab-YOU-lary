@@ -2,7 +2,7 @@ import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import { getLanguage } from '../../api/languageData';
 
-const selectLanguage = (uid, languageId) => {
+const selectLanguage = (uid, languageID) => {
   let domString = `
   <label for="language">Select an Language</label>
     <select class="form-control" id="language_id_name">
@@ -13,7 +13,7 @@ const selectLanguage = (uid, languageId) => {
       domString += `
         <option 
           value="${language.firebaseKey}" 
-          ${languageId === language.firebaseKey ? 'selected' : ''}>
+          ${languageID === language.firebaseKey ? 'selected' : ''}>
             ${language.language_name} 
         </option>`;
     });

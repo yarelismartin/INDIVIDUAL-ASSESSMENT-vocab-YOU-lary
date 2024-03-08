@@ -6,5 +6,20 @@ body {
   background-color: antiquewhite;
   color: brown;
   text-align: center;
-  margin-top: 100px;
+}
+#store{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  .card {
+    margin: 10px;
+  }
+}
+
+#navs{
+  position: sticky; 
+  top: 0; 
+  z-index: 1;
 }
