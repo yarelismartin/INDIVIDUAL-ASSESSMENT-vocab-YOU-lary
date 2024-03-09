@@ -27,4 +27,16 @@ const getLanguageforfilter = async (uid) => {
   // Return the array of unique language names
   return languages;
 };
-export { getVocabDetails, getLanguageforfilter };
+
+const searchStore = async (uid, searchValue) => {
+  const allVocab = await getVocab(uid);
+  const filterVocab = await allVocab.filter((vocabulary) => (
+    vocabulary.title.toLowerCase().includes(searchValue)
+  || vocabulary.definition.toLowerCase().includes(searchValue)
+  || vocabulary.time_submitted.toLowerCase().includes(searchValue)
+  // || getVocabByLang(uid, vocabulary.languageID).toLowerCase().includes(searchValue)
+  ));
+
+  return { vocabulary: filterVocab };
+};
+export { getVocabDetails, getLanguageforfilter, searchStore };

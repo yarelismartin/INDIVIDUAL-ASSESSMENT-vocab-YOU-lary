@@ -18,18 +18,6 @@ const orderFilterCardsBtn = (uid) => {
     } else {
       console.warn('hi');
     }
-
-    // if (e.target.id.includes('alphabetically')) {
-    //   const ordered = await getVocab(uid);
-    //   const orderedAlpha = ordered.sort((a, b) => a.title.localeCompare(b.title));
-    //   showVocabs(orderedAlpha, uid);
-    // }
-    // if (e.target.id.includes('newest')) {
-    //   const ordered = await getVocab(uid);
-    // }
-    // if (e.target.id.includes('oldest')) {
-
-    // }
   });
 };
 
