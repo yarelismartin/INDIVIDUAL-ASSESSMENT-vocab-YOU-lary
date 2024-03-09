@@ -25,7 +25,8 @@ const selectLanguage = (uid, languageID) => {
 const addVocabForm = (obj = {}, uid) => {
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-vocab--${obj.firebaseKey}` : 'submit-vocab'}">
+  <form id="${obj.firebaseKey ? `update-vocab--${obj.firebaseKey}` : 'submit-vocab'}" style="margin: 30px; font-weight: 400;
+  ">
     <div class="mb-3">
       <label class="form-label">Title</label>
       <input type="text" class="form-control" id="title" aria-describedby="vocabTitle" value="${obj.title || ''}" required>
@@ -35,7 +36,7 @@ const addVocabForm = (obj = {}, uid) => {
       <input type="text" class="form-control" id="definition" value="${obj.definition || ''}">
     </div>
     <div class="form-group" id="select-language"></div>
-    <button type="submit" class="btn btn-primary">${obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'}</button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">${obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'}</button>
   </form>
   `;
   renderToDOM('#form-container', domString);

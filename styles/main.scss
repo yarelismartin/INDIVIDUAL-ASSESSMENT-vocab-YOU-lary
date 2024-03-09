@@ -8,7 +8,7 @@
 
 
 body {
-  background-color: antiquewhite;
+  background-color: #2aa19791;
   text-align: center;
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
@@ -33,6 +33,8 @@ body {
 .card {
   margin: 10px;
   padding-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
   .btn-radius{
     border-radius: 50%;
   }
@@ -48,10 +50,14 @@ body {
   z-index: 1;
 }
 
-#create_vocab_div{
-  margin-right: 700px;
-}
 #search-div{
   display: flex;
   flex-direction: row;
+}
+
+.login-btn{
+  margin-top:20%;
+  width:200px;
+  height:50px;
+  font-weight: bolder;
 }
