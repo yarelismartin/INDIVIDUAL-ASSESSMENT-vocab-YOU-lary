@@ -1,4 +1,5 @@
 import { searchStore } from '../api/mergedData';
+import { getVocab } from '../api/vocabData';
 import addLanguageForm from '../components/forms/addLanguageForm';
 import addVocabForm from '../components/forms/addVocabForm';
 import showVocabs from '../pages/vocabs';
@@ -12,6 +13,11 @@ const navEvents = (uid) => {
     }
     if (e.target.id.includes('create_lang_btn')) {
       addLanguageForm({});
+    }
+    if (e.target.id.includes('logo-see-all')) {
+      clearDom();
+      console.warn('logo clicked');
+      getVocab(uid).then((vocab) => showVocabs(vocab, uid));
     }
   });
   const selectSearch = document.querySelector('#search');
