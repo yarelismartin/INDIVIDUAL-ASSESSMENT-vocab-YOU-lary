@@ -1,3 +1,4 @@
+import { createLanguage, updateLanguage } from '../api/languageData';
 import { getVocab, updateVocab, createVocab } from '../api/vocabData';
 import showVocabs from '../pages/vocabs';
 
@@ -18,6 +19,21 @@ const formEvents = (uid) => {
         const patchPayload = { firebaseKey: name };
 
         updateVocab(patchPayload).then(() => {
+          getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+        });
+      });
+    }
+    if (e.target.id.includes('submit-lang')) {
+      console.warn('clicked submit new lang button', e.target.id);
+      // eslint-disable-next-line no-undef
+      const payload = {
+        language_name: document.querySelector('#lang_name').value,
+        uid
+      };
+      createLanguage(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+
+        updateLanguage(patchPayload).then(() => {
           getVocab(uid).then((vocab) => showVocabs(vocab, uid));
         });
       });

@@ -32,4 +32,32 @@ const getSingleLanguage = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getLanguage, getSingleLanguage };
+const createLanguage = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/language.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const updateLanguage = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/language/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve) // will resolve a single object
+    .catch(reject);
+});
+
+export {
+  getLanguage, getSingleLanguage, createLanguage, updateLanguage
+};
