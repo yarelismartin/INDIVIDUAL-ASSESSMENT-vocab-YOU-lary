@@ -8,6 +8,8 @@ import navEvents from '../events/navEvents';
 import formEvents from '../events/formEvents';
 import renderFilterNavigation from '../components/shared/langNavBar';
 import langEvents from '../events/langevents';
+import filterCardsBy from '../components/shared/filterCardsBy';
+import orderFilterCardsBtn from '../events/orderFilterCardsBtn';
 
 const startApp = (uid) => {
   domBuilder();
@@ -15,9 +17,11 @@ const startApp = (uid) => {
   domEvents(uid);
   formEvents(uid);
   navBar();
+  filterCardsBy();
   logoutButton();
   navEvents(uid);
   langEvents(uid);
+  orderFilterCardsBtn(uid);
   getVocab(uid).then((vocab) => showVocabs(vocab, uid));
 };
 

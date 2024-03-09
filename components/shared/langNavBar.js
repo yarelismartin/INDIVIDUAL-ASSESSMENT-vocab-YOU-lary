@@ -5,7 +5,7 @@ const renderFilterNavigation = async (uid) => {
   const languages = await getLanguageforfilter(uid);
   console.warn(languages);
 
-  let filterNavString = '<nav class="navbar navbar-light bg-light"> <button class="btn btn-outline-primary filter-btn" id="allVocabs"> Show all Vocabs </button>';
+  let filterNavString = '<hr style="margin: 0px;"><nav id="filter-nav" class="navbar navbar-light bg-light" style="background-color: #F5F5F1 !important"> <button class="btn btn-outline-primary filter-btn" id="allVocabs"> Show all Vocabs </button>';
 
   languages.forEach((language) => {
     filterNavString += `

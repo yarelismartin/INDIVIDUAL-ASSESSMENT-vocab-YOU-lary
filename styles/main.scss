@@ -1,23 +1,47 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
+@import "https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap";
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 900
+
 
 
 body {
   background-color: antiquewhite;
-  color: brown;
   text-align: center;
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300; // Default weight for the body
+  font-style: normal;
 }
+
+.source-code-pro-vocab {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 #store{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 
-  .card {
-    margin: 10px;
+}
+.card {
+  margin: 10px;
+  padding-bottom: 10px;
+  .btn-radius{
+    border-radius: 50%;
   }
 }
 
+#filter-nav{
+  display: flex;
+  justify-content: space-evenly;
+}
 #navs{
   position: sticky; 
   top: 0; 

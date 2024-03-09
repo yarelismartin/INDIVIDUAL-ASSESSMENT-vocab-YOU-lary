@@ -12,7 +12,9 @@ const domEvents = (uid) => {
         console.warn('delete-btn clicked', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
         deleteVocab(firebaseKey).then(() => {
-          getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+          getVocab(uid).then((vocab) => {
+            showVocabs(vocab, uid);
+          });
         });
       }
     }
