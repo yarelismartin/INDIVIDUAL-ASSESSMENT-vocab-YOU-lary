@@ -5,9 +5,10 @@ const navBar = () => {
   const domString = `<nav class="navbar bg-body-tertiary" style="    padding: 0;">
     <div class="container-fluid" style="background-color: #F5F5F1;">
       <span class="navbar-brand mb-0 h1">
-      <img src="${logo}" alt="Girl in a jacket" width="400" height="80"></span>
+      <img src="${logo}" alt="" width="400" height="80"></span>
       <div id="create_vocab_div">
         <button id="create_vocab_btn" class="btn btn-outline-success me-2" type="button">Creat Entry</button>
+        <button id="create_lang_btn" class="btn btn-outline-success me-2" type="button">Creat Language</button>
       </div>
       <div id="search-div">
         <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -1,4 +1,5 @@
 import { searchStore } from '../api/mergedData';
+import addLanguageForm from '../components/forms/addLanguageForm';
 import addVocabForm from '../components/forms/addVocabForm';
 import showVocabs from '../pages/vocabs';
 import clearDom from '../utils/clearDom';
@@ -8,6 +9,9 @@ const navEvents = (uid) => {
   document.querySelector('#main_navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('create_vocab_btn')) {
       addVocabForm({}, uid);
+    }
+    if (e.target.id.includes('create_lang_btn')) {
+      addLanguageForm({});
     }
   });
   const selectSearch = document.querySelector('#search');
