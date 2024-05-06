@@ -12,6 +12,7 @@ const formEvents = (uid) => {
         title: document.querySelector('#title').value,
         languageID: document.querySelector('#language_id_name').value,
         definition: document.querySelector('#definition').value,
+        is_public: document.querySelector('#is_public').checked,
         time_submitted: new Date().toISOString().slice(0, 19).replace('T', ' '),
         uid
       };
