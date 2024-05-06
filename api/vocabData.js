@@ -31,7 +31,7 @@ const getAllPublicVocab = (uid) => new Promise((resolve, reject) => {
     .then((data) => {
       if (data) {
         const allVocab = Object.values(data);
-        const filteredVocab = allVocab.filter((vocabulary) => vocabulary.uid === uid || vocabulary.is_public);
+        const filteredVocab = allVocab.filter((vocabulary) => vocabulary.uid === uid || vocabulary.is_public === true);
         resolve(filteredVocab);
       } else {
         resolve([]);

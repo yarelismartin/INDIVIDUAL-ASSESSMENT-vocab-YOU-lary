@@ -12,7 +12,7 @@ const langEvents = (uid) => {
       showVocabs(vocab, uid);
       console.warn('getVocabByLang', getVocabByLang(firebaseKey));
     }
-    if (e.target.id.includes('community')) {
+    if (e.target.id.includes('allVocabs')) {
       clearDom();
       getVocab(uid).then((vocab) => showVocabs(vocab, uid));
     }

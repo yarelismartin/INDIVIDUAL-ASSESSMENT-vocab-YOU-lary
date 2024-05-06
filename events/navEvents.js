@@ -1,5 +1,5 @@
 import { searchStore } from '../api/mergedData';
-import { getVocab } from '../api/vocabData';
+import { getAllPublicVocab, getVocab } from '../api/vocabData';
 import addLanguageForm from '../components/forms/addLanguageForm';
 import addVocabForm from '../components/forms/addVocabForm';
 import showVocabs from '../pages/vocabs';
@@ -22,7 +22,7 @@ const navEvents = (uid) => {
     if (e.target.id.includes('community')) {
       clearDom();
       console.warn('community clicked');
-      getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+      getAllPublicVocab(uid).then((vocab) => showVocabs(vocab, uid));
     }
   });
   // const selectSearch = document.querySelector('#search');

@@ -1,6 +1,6 @@
 import renderToDOM from '../utils/renderToDom';
 import clearDom from '../utils/clearDom';
-import { getLanguage } from '../api/languageData';
+import { getAllLanguage } from '../api/languageData';
 
 const emptyVocabs = () => {
   clearDom();
@@ -8,13 +8,13 @@ const emptyVocabs = () => {
   renderToDOM('#store', domString);
 };
 
-const showVocabs = async (array, uid) => {
+const showVocabs = async (array) => {
   clearDom();
   if (array.length === 0) {
     emptyVocabs();
   } else {
     let domString = '';
-    const languages = await getLanguage(uid);
+    const languages = await getAllLanguage();
 
     array.forEach((item) => {
       const singleLanguage = languages.find((lang) => lang.firebaseKey === item.languageID);

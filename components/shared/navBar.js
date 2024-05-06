@@ -12,8 +12,8 @@ const navBar = () => {
       <div id="create_div">
         <button id="create_vocab_btn" class="btn btn-outline-success me-2" type="button">Create Entry</button>
         <button id="create_lang_btn" class="btn btn-outline-success me-2" type="button">Create Language</button>
-        <button id="community" class="btn btn-outline-success me-2" type="button">Community</button>
       </div>
+      <button id="community" class="btn btn-outline-success me-2" type="button">Community</button>
 
 <div id="search-div">
       <div class="search-box">
