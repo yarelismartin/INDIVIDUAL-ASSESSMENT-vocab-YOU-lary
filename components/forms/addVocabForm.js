@@ -42,10 +42,13 @@ const addVocabForm = (obj = {}, uid) => {
 }">
     </div>
     <div class="form-group" id="select-language"></div>
+
     <div class="form-check form-switch" style="margin-top: 10px">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" value=${obj.is_public || false}>
-  <label class="form-check-label" for="flexSwitchCheckDefault" style="margin-right: 80%"> Is this Lengo public? </label>
-</div>
+      <input class="form-check-input" type="checkbox" role="switch" id="is_public" value=""  ${obj.is_public ? 'checked' : ''}>
+
+        <label class="form-check-label" for="flexSwitchCheckDefault" style="margin-right: 80%"> Is this Lengo public? </label>
+    </div>
+
     <button type="submit" class="btn btn-primary" style="margin-top: 15px;">${
   obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'
 }</button>
