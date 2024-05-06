@@ -53,6 +53,7 @@ body {
 #search-div{
   display: flex;
   flex-direction: row;
+  margin-right: 20px;
 }
 
 .login-btn{
@@ -60,4 +61,55 @@ body {
   width:200px;
   height:50px;
   font-weight: bolder;
+}
+
+.search-box {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.search-box:hover > .search-text {
+  width: 200px; /* Increase the width of the input field */
+  padding: 0 6px;
+}
+
+.search-box:hover > .search-btn {
+  background: #2aa19791;
+  color: #F5F5F1;
+}
+
+.search-btn {
+  color: #e84118;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-btn > i {
+  font-size: 20px; /* Adjust the size of the search icon */
+}
+
+.search-text {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+  padding: 0;
 }

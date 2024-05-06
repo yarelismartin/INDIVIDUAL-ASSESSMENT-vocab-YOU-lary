@@ -25,18 +25,30 @@ const selectLanguage = (uid, languageID) => {
 const addVocabForm = (obj = {}, uid) => {
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-vocab--${obj.firebaseKey}` : 'submit-vocab'}" style="margin: 30px; font-weight: 400;
+  <form id="${
+  obj.firebaseKey ? `update-vocab--${obj.firebaseKey}` : 'submit-vocab'
+}" style="margin: 30px; font-weight: 400;
   ">
     <div class="mb-3">
       <label class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" aria-describedby="vocabTitle" value="${obj.title || ''}" required>
+      <input type="text" class="form-control" id="title" aria-describedby="vocabTitle" value="${
+  obj.title || ''
+}" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Definition</label>
-      <input type="text" class="form-control" id="definition" value="${obj.definition || ''}">
+      <input type="text" class="form-control" id="definition" value="${
+  obj.definition || ''
+}">
     </div>
     <div class="form-group" id="select-language"></div>
-    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">${obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'}</button>
+    <div class="form-check form-switch" style="margin-top: 10px">
+  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" value=${obj.is_public || false}>
+  <label class="form-check-label" for="flexSwitchCheckDefault" style="margin-right: 80%"> Is this Lengo public? </label>
+</div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">${
+  obj.firebaseKey ? 'Update Vocabulary' : 'Submit Vocabulary'
+}</button>
   </form>
   `;
   renderToDOM('#form-container', domString);

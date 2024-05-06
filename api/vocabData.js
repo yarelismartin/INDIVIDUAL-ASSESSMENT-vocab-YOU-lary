@@ -20,6 +20,26 @@ const getVocab = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getAllPublicVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const allVocab = Object.values(data);
+        const filteredVocab = allVocab.filter((vocabulary) => vocabulary.uid === uid || vocabulary.is_public);
+        resolve(filteredVocab);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'GET',
@@ -86,5 +106,5 @@ const getVocabByLang = (uid, languageID) => new Promise((resolve, reject) => {
 });
 
 export {
-  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab, getVocabByLang
+  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab, getVocabByLang, getAllPublicVocab
 };

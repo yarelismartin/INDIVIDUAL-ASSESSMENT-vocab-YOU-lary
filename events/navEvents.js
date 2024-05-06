@@ -19,25 +19,59 @@ const navEvents = (uid) => {
       console.warn('logo clicked');
       getVocab(uid).then((vocab) => showVocabs(vocab, uid));
     }
+    if (e.target.id.includes('community')) {
+      clearDom();
+      console.warn('community clicked');
+      getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+    }
   });
+  // const selectSearch = document.querySelector('#search');
+
+  // selectSearch.addEventListener('keyup', (e) => {
+  //   const searchValue = selectSearch.value.toLowerCase();
+  //   console.warn(searchValue);
+
+  //   if (e.keyCode === 13) {
+  //     selectSearch.value = '';
+  //     searchStore(uid, searchValue).then(({ vocabulary }) => {
+  //       if (vocabulary.length > 0) {
+  //         console.warn(vocabulary);
+  //         showVocabs(vocabulary, uid);
+  //       } else {
+  //         clearDom();
+  //         const domString = '<h1> No Results</h1>';
+  //         renderToDOM('#store', domString);
+  //       }
+  //     });
+  //   }
+  // });
   const selectSearch = document.querySelector('#search');
-  selectSearch.addEventListener('keyup', (e) => {
+  const searchButton = document.querySelector('#search-btn');
+
+  const performSearch = () => {
     const searchValue = selectSearch.value.toLowerCase();
     console.warn(searchValue);
+    searchStore(uid, searchValue).then(({ vocabulary }) => {
+      if (vocabulary.length > 0) {
+        console.warn(vocabulary);
+        showVocabs(vocabulary, uid);
+      } else {
+        clearDom();
+        const domString = '<h1> No Results</h1>';
+        renderToDOM('#store', domString);
+      }
+    });
+  };
 
-    if (e.keyCode === 13) {
-      selectSearch.value = '';
-      searchStore(uid, searchValue).then(({ vocabulary }) => {
-        if (vocabulary.length > 0) {
-          console.warn(vocabulary);
-          showVocabs(vocabulary, uid);
-        } else {
-          clearDom();
-          const domString = '<h1> No Results</h1>';
-          renderToDOM('#store', domString);
-        }
-      });
+  selectSearch.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch();
     }
+  });
+
+  searchButton.addEventListener('click', () => {
+    performSearch();
   });
 };
 
