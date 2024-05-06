@@ -15,6 +15,7 @@ const langEvents = (uid) => {
     if (e.target.id.includes('allVocabs')) {
       clearDom();
       getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+      console.warn(getVocab(uid));
     }
   });
 };

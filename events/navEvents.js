@@ -22,7 +22,7 @@ const navEvents = (uid) => {
     if (e.target.id.includes('community')) {
       clearDom();
       console.warn('community clicked');
-      getAllPublicVocab(uid).then((vocab) => showVocabs(vocab, uid));
+      getAllPublicVocab(uid).then((vocab) => showVocabs(vocab, uid, true));
     }
   });
   // const selectSearch = document.querySelector('#search');
