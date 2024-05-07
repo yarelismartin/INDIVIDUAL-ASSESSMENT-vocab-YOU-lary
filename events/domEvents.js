@@ -1,4 +1,6 @@
-import { deleteVocab, getSingleVocab, getVocab } from '../api/vocabData';
+import {
+  copyEntry, deleteVocab, getSingleVocab, getVocab
+} from '../api/vocabData';
 import showVocabs from '../pages/vocabs';
 import addVocabForm from '../components/forms/addVocabForm';
 import { getVocabDetails } from '../api/mergedData';
@@ -30,6 +32,16 @@ const domEvents = (uid) => {
       console.warn('edit-btn clicked', e.target.id);
       const [, firebaseKey] = e.target.id.split('--');
       getSingleVocab(firebaseKey).then((vocabObj) => addVocabForm(vocabObj, uid));
+    }
+
+    if (e.target.id.includes('add-to-entries')) {
+      console.warn('add-to-entries clicked', e.target.id);
+      const [, firebaseKey] = e.target.id.split('--');
+      copyEntry(firebaseKey, uid).then(() => {
+        getVocab(uid).then((vocab) => {
+          showVocabs(vocab, uid);
+        });
+      });
     }
   });
 };

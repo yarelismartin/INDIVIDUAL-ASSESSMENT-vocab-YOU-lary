@@ -1,4 +1,7 @@
 import client from '../utils/client';
+import {
+  createLanguage, getLanguage, getSingleLanguage, updateLanguage
+} from './languageData';
 
 const endpoint = client.databaseURL;
 
@@ -105,6 +108,36 @@ const getVocabByLang = (uid, languageID) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const copyEntry = async (vocabFirebaseKey, uid) => {
+  const copiedPayload = await getSingleVocab(vocabFirebaseKey);
+  console.warn(copiedPayload);
+  copiedPayload.time_submitted = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  copiedPayload.is_public = 'false';
+  copiedPayload.uid = uid;
+
+  const vocabObj = await createVocab(copiedPayload);
+  const vocabPatchPayload = { firebaseKey: vocabObj.name };
+  await updateVocab(vocabPatchPayload);
+
+  // Get the user's language entries
+  const userLanguages = await getLanguage(uid);
+  const copiedLangEntry = await getSingleLanguage(copiedPayload.languageID);
+
+  // Find the language entry with the matching language_name
+  const matchingLang = userLanguages.find((lang) => lang.language_name === copiedLangEntry.language_name);
+
+  if (matchingLang) {
+  // If a matching language entry exists, update the copied entry to use the matching language entry's firebaseKey
+    await updateVocab({ firebaseKey: vocabObj.name, languageID: matchingLang.firebaseKey });
+  } else {
+  // If no matching language entry exists, create a new language entry for the user
+    const langPayload = { language_name: copiedLangEntry.language_name, uid };
+    const langObj = await createLanguage(langPayload);
+    const langPatchPayload = { firebaseKey: langObj.name };
+    await updateLanguage(langPatchPayload);
+    await updateVocab({ firebaseKey: vocabObj.name, languageID: langObj.name });
+  }
+};
 export {
-  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab, getVocabByLang, getAllPublicVocab
+  getVocab, getSingleVocab, deleteVocab, updateVocab, createVocab, getVocabByLang, getAllPublicVocab, copyEntry
 };
