@@ -5,6 +5,8 @@ import showVocabs from '../pages/vocabs';
 import addVocabForm from '../components/forms/addVocabForm';
 import { getVocabDetails } from '../api/mergedData';
 import viewVocab from '../pages/viewVocab';
+import renderFilterNavigation from '../components/shared/langNavBar';
+import toggleFilter from './filterToggle';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -16,6 +18,8 @@ const domEvents = (uid) => {
         deleteVocab(firebaseKey).then(() => {
           getVocab(uid).then((vocab) => {
             showVocabs(vocab, uid);
+            renderFilterNavigation(uid);
+            toggleFilter(true);
           });
         });
       }
@@ -26,6 +30,7 @@ const domEvents = (uid) => {
       getVocabDetails(firebaseKey).then((vocabLangObject) => {
         console.warn(vocabLangObject);
         viewVocab(vocabLangObject);
+        toggleFilter(true);
       });
     }
     if (e.target.id.includes('edit-vocab-btn')) {
@@ -40,6 +45,8 @@ const domEvents = (uid) => {
       copyEntry(firebaseKey, uid).then(() => {
         getVocab(uid).then((vocab) => {
           showVocabs(vocab, uid);
+          renderFilterNavigation(uid);
+          toggleFilter(true);
         });
       });
     }

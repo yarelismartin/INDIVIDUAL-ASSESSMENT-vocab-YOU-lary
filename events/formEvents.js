@@ -1,6 +1,7 @@
 import { createLanguage, updateLanguage } from '../api/languageData';
 import { getVocab, updateVocab, createVocab } from '../api/vocabData';
 import showVocabs from '../pages/vocabs';
+import toggleFilter from './filterToggle';
 
 const formEvents = (uid, displayName) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -23,6 +24,7 @@ const formEvents = (uid, displayName) => {
           getVocab(uid).then((vocab) => showVocabs(vocab, uid));
         });
       });
+      toggleFilter(true);
     }
     if (e.target.id.includes('submit-lang')) {
       console.warn('clicked submit new lang button', e.target.id);
@@ -38,6 +40,7 @@ const formEvents = (uid, displayName) => {
           getVocab(uid).then((vocab) => showVocabs(vocab, uid));
         });
       });
+      toggleFilter(true);
     }
     if (e.target.id.includes('update-vocab')) {
       const [, firebaseKey] = e.target.id.split('--');

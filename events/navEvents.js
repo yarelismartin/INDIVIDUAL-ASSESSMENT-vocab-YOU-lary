@@ -2,17 +2,21 @@ import { searchStore } from '../api/mergedData';
 import { getAllPublicVocab, getVocab } from '../api/vocabData';
 import addLanguageForm from '../components/forms/addLanguageForm';
 import addVocabForm from '../components/forms/addVocabForm';
+// import filterCardsBy from '../components/shared/filterCardsBy';
 import showVocabs from '../pages/vocabs';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
+import toggleFilter from './filterToggle';
 
 const navEvents = (uid) => {
   document.querySelector('#main_navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('create_vocab_btn')) {
       addVocabForm({}, uid);
+      toggleFilter(false);
     }
     if (e.target.id.includes('create_lang_btn')) {
       addLanguageForm({});
+      toggleFilter(false);
     }
     if (e.target.id.includes('logo-see-all')) {
       clearDom();
@@ -23,6 +27,12 @@ const navEvents = (uid) => {
       clearDom();
       console.warn('community clicked');
       getAllPublicVocab(uid).then((vocab) => showVocabs(vocab, uid, true));
+      toggleFilter(false);
+    }
+    if (e.target.id.includes('allVocabs')) {
+      clearDom();
+      getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+      toggleFilter(true);
     }
   });
   // const selectSearch = document.querySelector('#search');

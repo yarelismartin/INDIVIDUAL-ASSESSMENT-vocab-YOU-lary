@@ -34,6 +34,7 @@ const showVocabs = async (array, uid, isCommunityTab) => {
       <i id="edit-vocab-btn--${item.firebaseKey}" class="btn btn-info btn-radius" style="background-color:#268BD2"><span id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit"></span></i>
       <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger btn-radius" style="background-color:#CB4B16"><span id="delete-vocab-btn--${item.firebaseKey}" class="fas fa-trash-alt"></span></i>` : `<button id="add-to-entries--${item.firebaseKey}" class="btn btn-success" style="background-color:#2AA198; width: 70%; border-radius: 30px">Add to Entries</button>`}
       
+      
     </div>
 
     </div>

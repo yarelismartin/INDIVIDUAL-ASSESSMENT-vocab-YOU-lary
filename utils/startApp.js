@@ -17,12 +17,12 @@ const startApp = (uid, displayName) => {
   domEvents(uid);
   formEvents(uid, displayName);
   navBar();
-  filterCardsBy();
   logoutButton();
   navEvents(uid);
   langEvents(uid);
   orderFilterCardsBtn(uid);
   getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+  filterCardsBy();
 };
 
 export default startApp;
