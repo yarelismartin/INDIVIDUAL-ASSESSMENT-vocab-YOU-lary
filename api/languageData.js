@@ -20,6 +20,23 @@ const getLanguage = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getAllLanguage = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/language.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 const getSingleLanguage = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/language/${firebaseKey}.json`, {
     method: 'GET',
@@ -59,5 +76,5 @@ const updateLanguage = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getLanguage, getSingleLanguage, createLanguage, updateLanguage
+  getLanguage, getSingleLanguage, createLanguage, updateLanguage, getAllLanguage
 };

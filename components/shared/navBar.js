@@ -12,12 +12,22 @@ const navBar = () => {
       <div id="create_div">
         <button id="create_vocab_btn" class="btn btn-outline-success me-2" type="button">Create Entry</button>
         <button id="create_lang_btn" class="btn btn-outline-success me-2" type="button">Create Language</button>
+        <button class="btn btn-outline-primary filter-btn" id="allVocabs"> Show all Vocabs </button>
+        <button id="community" class="btn btn-outline-success me-2" type="button">Community</button>
       </div>
-      <div id="search-div">
-        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button id="search-btn" class="btn btn-outline-success" type="submit" style=" margin-right:10px;">Search</button>
-        <div id="logout_btn"></div>
+      
+
+<div id="search-div">
+      <div class="search-box">
+        <input id="search" class="search-text" type="text" placeholder="Search Your Lengo">
+        <a href="#" id="search-btn" class="search-btn">
+          <i class="fas fa-search"></i>
+        </a>
+        
       </div>
+      <div id="logout_btn"></div>
+</div>
+
     </div>
   </nav>`;
   renderToDOM('#main_navigation', domString);

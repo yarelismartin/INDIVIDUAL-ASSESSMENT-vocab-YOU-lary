@@ -1,6 +1,5 @@
-import { getVocabByLang, getVocab } from '../api/vocabData';
+import { getVocabByLang } from '../api/vocabData';
 import showVocabs from '../pages/vocabs';
-import clearDom from '../utils/clearDom';
 
 const langEvents = (uid) => {
   document.querySelector('#filter_navigation').addEventListener('click', async (e) => {
@@ -11,10 +10,6 @@ const langEvents = (uid) => {
       const vocab = await getVocabByLang(uid, firebaseKey);
       showVocabs(vocab, uid);
       console.warn('getVocabByLang', getVocabByLang(firebaseKey));
-    }
-    if (e.target.id.includes('allVocabs')) {
-      clearDom();
-      getVocab(uid).then((vocab) => showVocabs(vocab, uid));
     }
   });
 };

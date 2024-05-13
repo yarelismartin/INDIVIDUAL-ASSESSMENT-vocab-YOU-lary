@@ -1,8 +1,12 @@
-import { deleteVocab, getSingleVocab, getVocab } from '../api/vocabData';
+import {
+  copyEntry, deleteVocab, getSingleVocab, getVocab
+} from '../api/vocabData';
 import showVocabs from '../pages/vocabs';
 import addVocabForm from '../components/forms/addVocabForm';
 import { getVocabDetails } from '../api/mergedData';
 import viewVocab from '../pages/viewVocab';
+import renderFilterNavigation from '../components/shared/langNavBar';
+import toggleFilter from './filterToggle';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -14,6 +18,8 @@ const domEvents = (uid) => {
         deleteVocab(firebaseKey).then(() => {
           getVocab(uid).then((vocab) => {
             showVocabs(vocab, uid);
+            renderFilterNavigation(uid);
+            toggleFilter(true);
           });
         });
       }
@@ -24,12 +30,25 @@ const domEvents = (uid) => {
       getVocabDetails(firebaseKey).then((vocabLangObject) => {
         console.warn(vocabLangObject);
         viewVocab(vocabLangObject);
+        toggleFilter(true);
       });
     }
     if (e.target.id.includes('edit-vocab-btn')) {
       console.warn('edit-btn clicked', e.target.id);
       const [, firebaseKey] = e.target.id.split('--');
       getSingleVocab(firebaseKey).then((vocabObj) => addVocabForm(vocabObj, uid));
+    }
+
+    if (e.target.id.includes('add-to-entries')) {
+      console.warn('add-to-entries clicked', e.target.id);
+      const [, firebaseKey] = e.target.id.split('--');
+      copyEntry(firebaseKey, uid).then(() => {
+        getVocab(uid).then((vocab) => {
+          showVocabs(vocab, uid);
+          renderFilterNavigation(uid);
+          toggleFilter(true);
+        });
+      });
     }
   });
 };

@@ -11,18 +11,18 @@ import langEvents from '../events/langevents';
 import filterCardsBy from '../components/shared/filterCardsBy';
 import orderFilterCardsBtn from '../events/orderFilterCardsBtn';
 
-const startApp = (uid) => {
+const startApp = (uid, displayName) => {
   domBuilder();
   renderFilterNavigation(uid);
   domEvents(uid);
-  formEvents(uid);
+  formEvents(uid, displayName);
   navBar();
-  filterCardsBy();
   logoutButton();
   navEvents(uid);
   langEvents(uid);
   orderFilterCardsBtn(uid);
   getVocab(uid).then((vocab) => showVocabs(vocab, uid));
+  filterCardsBy();
 };
 
 export default startApp;
